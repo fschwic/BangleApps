@@ -707,7 +707,7 @@
       {"name":"morse.img","url":"morse-code-icon.js","evaluate":true}
     ]
   },
-  { "id": "morse-keyer",
+  { "id": "morsekeyer",
     "name": "Morse Keyer",
     "icon": "morse-keyer.png",
     "version":"0.01",
@@ -715,8 +715,8 @@
     "tags": "morse,sound,visual,input",
     "type":"app",
     "storage": [
-      {"name":"morse-keyer.app.js","url":"morse-keyer.js"},
-      {"name":"morse-keyer.img","url":"morse-keyer-icon.js","evaluate":true}
+      {"name":"morsekeyer.app.js","url":"morse-keyer.js"},
+      {"name":"morsekeyer.img","url":"morse-keyer-icon.js","evaluate":true}
     ]
   },
   {
