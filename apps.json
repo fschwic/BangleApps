@@ -709,14 +709,14 @@
   },
   { "id": "morsekeyer",
     "name": "Morse Keyer",
-    "icon": "morse-keyer.png",
+    "icon": "morsekeyer-code.png",
     "version":"0.01",
     "description": "Tap left for dit, tap right for dah.",
     "tags": "morse,sound,visual,input",
     "type":"app",
     "storage": [
-      {"name":"morsekeyer.app.js","url":"morse-keyer.js"},
-      {"name":"morsekeyer.img","url":"morse-keyer-icon.js","evaluate":true}
+      {"name":"morsekeyer.app.js","url":"morsekeyer-code.js"},
+      {"name":"morsekeyer.img","url":"morsekeyer-code-icon.js","evaluate":true}
     ]
   },
   {
