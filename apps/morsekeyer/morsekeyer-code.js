@@ -98,8 +98,8 @@ const init = () => {
   g.fillRect(160, 110, 200, 130);
   g.fillCircle(160, 120, 10);
   g.fillCircle(200, 120, 10);
-  Bangle.loadWidgets();
-  Bangle.drawWidgets();
+  //Bangle.loadWidgets();
+  //Bangle.drawWidgets();
 };
 init();
 
@@ -130,5 +130,5 @@ function nextChar(c) {
 }
 
 function writeOut(written, linenumber) {
-  g.setFont("6x8", 2).drawString(written[linenumber], 10, 20 * (linenumber + 1));
+  g.setFont("6x8", 3).drawString(written[linenumber], 10, 26 * (linenumber + 1));
 }
