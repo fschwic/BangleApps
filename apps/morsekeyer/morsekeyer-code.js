@@ -52,15 +52,19 @@ var linenumber; // current number of lines of written text
 var written; // what was written so far, an array of lines
 
 const dit = () => {
-  keyer(UNIT, 1550);
-  sign += "1";
-  listen();
+  unlisten();
+  keyer(UNIT, 1550).then(() => {
+    sign += "1";
+    listen();
+  });
 };
 
 const dah = () => {
-  keyer(UNIT * 3, 1550);
-  sign += "3";
-  listen();
+  unlisten();
+  keyer(UNIT * 3, 1550).then(() => {
+    sign += "3";
+    listen();
+  });
 };
 
 const newChar = () => {
@@ -73,10 +77,13 @@ const newWord = () => {
 };
 
 const listen = () => {
-  clearTimeout(waitForChar);
-  clearTimeout(waitForWord);
   waitForChar = setTimeout(newChar, UNIT * 3);
   waitForWord = setTimeout(newWord, UNIT * 7);
+};
+
+const unlisten = () => {
+  clearTimeout(waitForChar);
+  clearTimeout(waitForWord);
 };
 
 
