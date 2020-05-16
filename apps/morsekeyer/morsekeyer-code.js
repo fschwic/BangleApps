@@ -47,6 +47,8 @@ var keyer = Bangle.buzz; // keyer might be Bangle.buzz or Bangle.beep
 var sign = ""; // the undergoing sequence of dits and dahs constituting a character
 var waitForChar = ""; // timeout identifier for end of char
 var waitForWord = ""; // timeout identifier for end of word
+var ditWatcher;
+var dahWatcher;
 
 var linenumber; // current number of lines of written text
 var written; // what was written so far, an array of lines
@@ -68,7 +70,12 @@ const dah = () => {
 };
 
 const newChar = () => {
-  nextChar(MORSE_MAP[sign]);
+  var c = MORSE_MAP[sign];
+  if (c) {
+    nextChar(c);
+  } else {
+    console.log("Unknown sign: " + sign);
+  }
   sign = "";
 };
 
@@ -79,9 +86,17 @@ const newWord = () => {
 const listen = () => {
   waitForChar = setTimeout(newChar, UNIT * 3);
   waitForWord = setTimeout(newWord, UNIT * 7);
+  ditWatcher = setWatch(dit, BTN4, {
+    repeat: false
+  });
+  dahWatcher = setWatch(dah, BTN5, {
+    repeat: false
+  });
 };
 
 const unlisten = () => {
+  clearWatch(ditWatcher);
+  clearWatch(dahWatcher);
   clearTimeout(waitForChar);
   clearTimeout(waitForWord);
 };
@@ -100,15 +115,14 @@ const init = () => {
   g.fillCircle(200, 120, 10);
   //Bangle.loadWidgets();
   //Bangle.drawWidgets();
+  ditWatcher = setWatch(dit, BTN4, {
+    repeat: false
+  });
+  dahWatcher = setWatch(dah, BTN5, {
+    repeat: false
+  });
 };
 init();
-
-setWatch(dit, BTN4, {
-  repeat: true
-});
-setWatch(dah, BTN5, {
-  repeat: true
-});
 
 setWatch(() => keyer = Bangle.buzz, BTN1, {
   repeat: true
