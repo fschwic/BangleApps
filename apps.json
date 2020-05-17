@@ -719,6 +719,18 @@
       {"name":"morsekeyer.img","url":"morsekeyer-code-icon.js","evaluate":true}
     ]
   },
+  { "id": "pokedex",
+    "name": "Pokedex",
+    "icon": "img/flammiau-96.png",
+    "version":"0.01",
+    "description": "",
+    "tags": "",
+    "type":"app",
+    "storage": [
+      {"name":"pokedex.app.js","url":"pokedex-app.js"},
+      {"name":"morsekeyer.img","url":"icons/pikachu-icon.js","evaluate":true}
+    ]
+  },
   {
     "id": "blescan",
     "name": "BLE Scanner",
