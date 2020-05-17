@@ -729,7 +729,15 @@
     "storage": [
       {"name":"pokedex.app.js","url":"pokedex-app.js"},
       {"name":"pokedex.json","url":"pokedex.json"},
-      {"name":"pokedex.img","url":"icons/pikachu-icon.js","evaluate":true}
+      {"name":"bisasam-icon.js","url":"icons/bisasam-icon.js","evaluate":true},
+      {"name":"flamiau-icon.js","url":"icons/flamiau-icon.js","evaluate":true},
+      {"name":"glumanda-icon.js","url":"icons/flamiau-icon.js","evaluate":true},
+      {"name":"hopplo-icon.js","url":"icons/hopplo-icon.js","evaluate":true},
+      {"name":"pikachu-icon.js","url":"icons/pikachu-icon.js","evaluate":true},
+      {"name":"reshiram-icon.js","url":"icons/reshiram-icon.js","evaluate":true},
+      {"name":"solgarleo-icon.js","url":"icons/solgarleo-icon.js","evaluate":true},
+      {"name":"zeraora-icon.js","url":"icons/zeraora-icon.js","evaluate":true},
+      {"name":"pokedex.img","url":"pokedex-icon.js","evaluate":true}
     ]
   },
   {

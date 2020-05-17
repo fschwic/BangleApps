@@ -6,7 +6,7 @@
   "weiterentwicklung": "2",
   "endform": "3",
   "img": "0001-bisasam.png",
-  "icon": "icons/bisasam-icon.js",
+  "icon": "bisasam-icon.js",
   "beschreibung": "",
   "typ": ["Pflanze", "Gift"]
 },
@@ -17,7 +17,7 @@
   "weiterentwicklung": "5",
   "endform": "6",
   "img": "glumanda.gif",
-  "icon": "icons/glumanda-icon.js",
+  "icon": "glumanda-icon.js",
   "beschreibung": "",
   "typ": ["Feuer"]
 },
@@ -28,7 +28,7 @@
   "weiterentwicklung": "814",
   "endform": "815",
   "img": "hopplo.png",
-  "icon": "icons/hopplo-icon.js",
+  "icon": "hopplo-icon.js",
   "beschreibung": "",
   "typ": ["Feuer"]
 },
@@ -36,7 +36,7 @@
 "id": "807",
 "name": "Zeraora",
 "img": "Zeraora.png",
-"icon": "icons/zeraora-icon.js",
+"icon": "zeraora-icon.js",
 "beschreibung": "",
 "typ": ["Blitz"]
 },
@@ -47,7 +47,7 @@
   "weiterentwicklung": "726",
   "endform": "727",
   "img": "flammiau.gif",
-  "icon": "icons/flamiau-icon.js",
+  "icon": "flamiau-icon.js",
   "beschreibung": "",
   "typ": ["Feuer"]
 },
@@ -55,7 +55,7 @@
   "id": "791",
   "name": "Solgarleo",
   "img": "solgarleo.png",
-  "icon": "icons/solgarleo-icon.js",
+  "icon": "solgarleo-icon.js",
   "beschreibung": "",
   "typ": ["Fee","Stahl"]
 },
@@ -63,7 +63,7 @@
   "id": "643",
   "name": "Reshiram",
   "img": "Reshiram.webp",
-  "icon": "icons/reshiram-icon.js",
+  "icon": "reshiram-icon.js",
   "beschreibung": "",
   "typ": ["Feuer","Drache"]
 },
@@ -74,7 +74,7 @@
   "weiterentwicklung": "26",
   "endform": "815",
   "img": "Pikachu.png",
-  "icon": "icons/pikachu-icon.js",
+  "icon": "pikachu-icon.js",
   "beschreibung": "",
   "typ": ["Blitz"]
 }

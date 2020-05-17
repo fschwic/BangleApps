@@ -55,7 +55,7 @@ drawMenu();
 \******************************/
 setWatch(function() {
   selected--;
-  if (selected < 0) selected = apps.length - 1;
+  if (selected < 0) selected = dex.length - 1;
   drawMenu();
 }, BTN1, {
   repeat: true
@@ -63,7 +63,7 @@ setWatch(function() {
 
 setWatch(function() {
   selected++;
-  if (selected >= apps.length) selected = 0;
+  if (selected >= dex.length) selected = 0;
   drawMenu();
 }, BTN3, {
   repeat: true
