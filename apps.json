@@ -728,7 +728,7 @@
     "type":"app",
     "storage": [
       {"name":"pokedex.app.js","url":"pokedex-app.js"},
-      {"name":"morsekeyer.img","url":"icons/pikachu-icon.js","evaluate":true}
+      {"name":"pokedex.img","url":"icons/pikachu-icon.js","evaluate":true}
     ]
   },
   {

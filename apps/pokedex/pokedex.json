@@ -8,7 +8,7 @@
   "img": "0001-bisasam.png",
   "icon": "icons/bisasam-icon.js",
   "beschreibung": "",
-  "typ": ["Pflanze", "Gift"],
+  "typ": ["Pflanze", "Gift"]
 },
 {
   "id": "4",
@@ -19,7 +19,7 @@
   "img": "glumanda.gif",
   "icon": "icons/glumanda-icon.js",
   "beschreibung": "",
-  "typ": ["Feuer"],
+  "typ": ["Feuer"]
 },
 {
   "id": "813",
@@ -30,7 +30,7 @@
   "img": "hopplo.png",
   "icon": "icons/hopplo-icon.js",
   "beschreibung": "",
-  "typ": ["Feuer"],
+  "typ": ["Feuer"]
 },
 {
 "id": "807",
@@ -38,7 +38,7 @@
 "img": "Zeraora.png",
 "icon": "icons/zeraora-icon.js",
 "beschreibung": "",
-"typ": ["Blitz"],
+"typ": ["Blitz"]
 },
 {
   "id": "725",
@@ -49,7 +49,7 @@
   "img": "flammiau.gif",
   "icon": "icons/flamiau-icon.js",
   "beschreibung": "",
-  "typ": ["Feuer"],
+  "typ": ["Feuer"]
 },
 {
   "id": "791",
@@ -57,7 +57,7 @@
   "img": "solgarleo.png",
   "icon": "icons/solgarleo-icon.js",
   "beschreibung": "",
-  "typ": ["Fee","Stahl"],
+  "typ": ["Fee","Stahl"]
 },
 {
   "id": "643",
@@ -65,7 +65,7 @@
   "img": "Reshiram.webp",
   "icon": "icons/reshiram-icon.js",
   "beschreibung": "",
-  "typ": ["Feuer","Drache"],
+  "typ": ["Feuer","Drache"]
 },
 {
   "id": "25",
@@ -76,6 +76,6 @@
   "img": "Pikachu.png",
   "icon": "icons/pikachu-icon.js",
   "beschreibung": "",
-  "typ": ["Blitz"],
-},
+  "typ": ["Blitz"]
+}
 ]
