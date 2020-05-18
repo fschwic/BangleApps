@@ -54,7 +54,7 @@ function drawPokemonScreen(){
   g.clear();
   var pokemon = dex[selected];
   var img = s.read(pokemon.icon);
-  g.drawImage(img,20,20);
+  g.drawImage(img, 24, 10, { scale: 2 });
 }
 
 /******************************\
