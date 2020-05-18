@@ -50,6 +50,13 @@ function drawMenu() { // kopiert vom BangleJS default Launcher
 }
 drawMenu();
 
+function drawPokemonScreen(){
+  g.clear();
+  var pokemon = dex[selected];
+  var img = s.read(pokemon.icon);
+  g.drawImage(img,20,20);
+}
+
 /******************************\
  * Knöpfe                     *
 \******************************/
@@ -60,6 +67,8 @@ setWatch(function() {
 }, BTN1, {
   repeat: true
 });
+
+setWatch(drawPokemonScreen, BTN2, {repeat: true});
 
 setWatch(function() {
   selected++;
