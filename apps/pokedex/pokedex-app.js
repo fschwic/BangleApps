@@ -85,7 +85,7 @@ function writeText(text, width, offset_x, offset_y) {
   });
 }
 
-function writeOut(written, line_index, offset_x = 10, offset_y = 26) {
+function writeOut(written, line_index, offset_x, offset_y) {
   g.setFont("6x8", 2).drawString(written[line_index], offset_x, offset_y + 18 * line_index);
 }
 
