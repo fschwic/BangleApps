@@ -63,15 +63,15 @@ function drawPokemonScreen() {
     scale: 1
   });
 
-  writeText(pokemon.name, IMAGE_SIZE, SCREEN_SIZE - IMAGE_SIZE - 5, IMAGE_SIZE + 10);
-  writeText(pokemon.beschreibung, 130, 5, 10);
+  writeText(pokemon.name, 2, IMAGE_SIZE, SCREEN_SIZE - IMAGE_SIZE - 5, IMAGE_SIZE + 10);
+  writeText(pokemon.beschreibung, 1, 130, 5, 10);
 }
 
 function writeText(text, size, width, offset_x, offset_y) {
   var linenumber = 0;
   var lines = [];
 
-  g.setFont("6x8", 2);
+  g.setFont("6x8", size);
   var line = "";
   var words = text.split(' ');
   words.forEach(function(word, i) {
