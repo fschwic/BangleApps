@@ -67,7 +67,7 @@ function drawPokemonScreen() {
   writeText(pokemon.beschreibung, 130, 5, 10);
 }
 
-function writeText(text, width, offset_x, offset_y) {
+function writeText(text, size, width, offset_x, offset_y) {
   var linenumber = 0;
   var lines = [];
 
@@ -76,17 +76,19 @@ function writeText(text, width, offset_x, offset_y) {
   var words = text.split(' ');
   words.forEach(function(word, i) {
     line += word;
-    if (g.stringWidth(line) > width) {
-      writeOut(lines, linenumber, offset_x, offset_y);
+    if (i > 0 && g.stringWidth(line) > width) {
+      writeOut(lines, linenumber, size, offset_x, offset_y);
       line = word;
       linenumber++;
     }
     lines[linenumber] = line;
   });
+  // write last unfilled line
+  writeOut(lines, linenumber, offset_x, offset_y);
 }
 
-function writeOut(written, line_index, offset_x, offset_y) {
-  g.setFont("6x8", 2).drawString(written[line_index], offset_x, offset_y + 18 * line_index);
+function writeOut(written, line_index, size, offset_x, offset_y) {
+  g.setFont("6x8", size).drawString(written[line_index], offset_x, offset_y + ((size +1)*size) * line_index);
 }
 
 /******************************\
