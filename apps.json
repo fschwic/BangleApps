@@ -721,7 +721,7 @@
   },
   { "id": "pokedex",
     "name": "Pokedex",
-    "icon": "img/Pikachu-96.png",
+    "icon": "img/Pikachu.png",
     "version":"0.01",
     "description": "",
     "tags": "",
