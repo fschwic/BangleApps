@@ -1,5 +1,7 @@
 const WPM = 20;
+const F_WPM = 20;
 const UNIT = 20 * (60 / WPM);
+const F_UNIT = 20 * (60 / F_WPM);
 const MORSE_MAP = {
   13: 'A',
   3111: 'B',
@@ -84,8 +86,8 @@ const newWord = () => {
 };
 
 const listen = () => {
-  waitForChar = setTimeout(newChar, UNIT * 3);
-  waitForWord = setTimeout(newWord, UNIT * 7);
+  waitForChar = setTimeout(newChar, F_UNIT * 3);
+  waitForWord = setTimeout(newWord, F_UNIT * 7);
   ditWatcher = setWatch(dit, BTN4, {
     repeat: false
   });
@@ -135,6 +137,7 @@ setWatch(() => keyer = Bangle.beep, BTN3, {
 });
 
 function nextChar(c) {
+  g.setFont("6x8", 3);
   if (g.stringWidth(written[linenumber]) > 220) {
     linenumber++;
     written[linenumber] = "";
@@ -143,6 +146,6 @@ function nextChar(c) {
   writeOut(written, linenumber);
 }
 
-function writeOut(written, linenumber) {
-  g.setFont("6x8", 3).drawString(written[linenumber], 10, 26 * (linenumber + 1));
+function writeOut(written, line_index, offset_x = 10, offset_y = 26) {
+  g.setFont("6x8", 3).drawString(written[line_index], offset_x, offset_y + 26 * line_index);
 }
