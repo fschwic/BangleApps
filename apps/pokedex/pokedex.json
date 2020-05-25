@@ -1,81 +1,80 @@
-[
-{
-  "id": "1",
-  "name": "Bisasam",
-  "entwicklungslever": 16,
-  "weiterentwicklung": "2",
-  "endform": "3",
-  "img": "0001-bisasam.png",
-  "icon": "bisasam-icon.js",
-  "beschreibung": "",
-  "typ": ["Pflanze", "Gift"]
-},
-{
-  "id": "4",
-  "name": "Glumanda",
-  "entwicklungslever": 16,
-  "weiterentwicklung": "5",
-  "endform": "6",
-  "img": "glumanda.gif",
-  "icon": "glumanda-icon.js",
-  "beschreibung": "",
-  "typ": ["Feuer"]
-},
-{
-  "id": "813",
-  "name": "Hopplo",
-  "entwicklungslever": 16,
-  "weiterentwicklung": "814",
-  "endform": "815",
-  "img": "hopplo.png",
-  "icon": "hopplo-icon.js",
-  "beschreibung": "Hopplo ist ein Pokémon mit dem Typ Feuer und existiert seit der achten Spielgeneration. Es wurde am 27. Februar 2019 in einem Trailer im Rahmen einer Pokémon Direct-Präsentation enthüllt, der kurz darauf auch im offiziellen Pokémon-YouTube-Kanal veröffentlicht wurde [1]. Später wurde es auf der offiziellen Pokémon-Webseite[2] weitergehend vorgestellt.Neben Chimpep und Memmeon ist Hopplo eines der Starter-Pokémon in Pokémon Schwert und Schild.Im Anime nimmt es als Gohs Hopplo eine wichtigere Rolle ein. ",
-  "typ": ["Feuer"]
-},
-{
-"id": "807",
-"name": "Zeraora",
-"img": "Zeraora.png",
-"icon": "zeraora-icon.js",
-"beschreibung": "Zeraora ist ein Mysteriöses Pokémon mit dem Typ Elektro und existiert seit der siebten Spielgeneration, in der es mit Pokémon Ultrasonne und Ultramond eingeführt wurde.Es war zunächst einige Augenblicke in einer Folge der japanischen Fernsehsendung Oha Suta am 9. April 2018 erstmalig in einem Trailer zum 21. Pokémon-Kinofilm zu sehen, bevor es in einem YouTube-Trailer[1] des offiziellen Pokémon-Channels sowie in einem Steckbrief[2] auf der offiziellen Homepage näher vorgestellt wurde.Zeraora spielt neben Lugia eine Hauptrolle im 21. Pokémon-Kinofilm. ",
-"typ": ["Blitz"]
-},
-{
-  "id": "725",
-  "name": "Flamiau",
-  "entwicklungslever": 17,
-  "weiterentwicklung": "726",
-  "endform": "727",
-  "img": "flammiau.gif",
-  "icon": "flamiau-icon.js",
-  "beschreibung": "Flamiau ist ein Pokémon mit dem Typ Feuer und existiert seit der siebten Spielgeneration. Es ist die Vorstufe von Miezunder, welches sich wiederum zu Fuegro entwickeln kann. Flamiau wurde am 10. Mai 2016 in einem Video[1] enthüllt und auf der offiziellen Pokémon-Webseite[2] weitergehend vorgestellt.Neben Bauz und Robball ist Flamiau eines der Starter-Pokémon aus Alola und ist in Pokémon Sonne, Mond, Ultrasonne und Ultramond als Starter-Pokémon erhältlich.Im Anime nimmt es als Ashs Flamiau eine wichtigere Rolle ein, welches sich später zu Miezunder und dann zu Fuegro entwickelt. Ein weitere wichtigere Rolle besitzt es als Sonnes Flamiau namens Kies im „Pocket Monsters SPECIAL“-Manga, das sich ebenfalls zu Miezunder entwickelt. ",
-  "typ": ["Feuer"]
-},
-{
-  "id": "791",
-  "name": "Solgarleo",
-  "img": "solgarleo.png",
-  "icon": "solgarleo-icon.js",
-  "beschreibung": "Solgaleo ist ein Legendäres Pokémon mit den Typen Psycho und Stahl und existiert seit der siebten Spielgeneration. Es bildet neben Lunala eine mögliche letzte Entwicklungsstufe von Cosmog und Cosmovum. Solgaleo ziert das Cover von Pokémon Sonne und ist das Gegenstück zu Lunala, welches das Cover von Pokémon Mond ziert.Ein Solgaleo mit dem Spitznamen Wölkchen nimmt im Anime eine zentrale Rolle ein. ",
-  "typ": ["Psycho","Stahl"]
-},
-{
-  "id": "643",
-  "name": "Reshiram",
-  "img": "Reshiram.webp",
-  "icon": "reshiram-icon.js",
-  "beschreibung": "",
-  "typ": ["Feuer","Drache"]
-},
-{
-  "id": "25",
-  "name": "Pikachu",
-  "entwicklungsitem":["Donnerstein","Donnerstein in Alola"],
-  "weiterentwicklung": "26",
-  "endform": "815",
-  "img": "Pikachu.png",
-  "icon": "pikachu-icon.js",
-  "beschreibung": "",
-  "typ": ["Blitz"]
-}
+[{
+    "id": "1",
+    "name": "Bisasam",
+    "entwicklungslever": 16,
+    "weiterentwicklung": "2",
+    "endform": "3",
+    "img": "0001-bisasam.png",
+    "icon": "bisasam-icon.js",
+    "beschreibung": "",
+    "typ": ["Pflanze", "Gift"]
+  },
+  {
+    "id": "4",
+    "name": "Glumanda",
+    "entwicklungslever": 16,
+    "weiterentwicklung": "5",
+    "endform": "6",
+    "img": "glumanda.gif",
+    "icon": "glumanda-icon.js",
+    "beschreibung": "",
+    "typ": ["Feuer"]
+  },
+  {
+    "id": "813",
+    "name": "Hopplo",
+    "entwicklungslever": 16,
+    "weiterentwicklung": "814",
+    "endform": "815",
+    "img": "hopplo.png",
+    "icon": "hopplo-icon.js",
+    "beschreibung": "Hopplo ist ein Pokémon mit dem Typ Feuer und existiert seit der achten Spielgeneration. Es wurde am 27. Februar 2019 in einem Trailer im Rahmen einer Pokémon Direct-Präsentation enthüllt, der kurz darauf auch im offiziellen Pokémon-YouTube-Kanal veröffentlicht wurde. Später wurde es auf der offiziellen Pokémon-Webseite weitergehend vorgestellt. Neben Chimpep und Memmeon ist Hopplo eines der Starter-Pokémon in Pokémon Schwert und Schild. Im Anime nimmt es als Gohs Hopplo eine wichtigere Rolle ein.",
+    "typ": ["Feuer"]
+  },
+  {
+    "id": "807",
+    "name": "Zeraora",
+    "img": "Zeraora.png",
+    "icon": "zeraora-icon.js",
+    "beschreibung": "Zeraora ist ein Mysteriöses Pokémon mit dem Typ Elektro und existiert seit der siebten Spielgeneration, in der es mit Pokémon Ultrasonne und Ultramond eingeführt wurde. Es war zunächst einige Augenblicke in einer Folge der japanischen Fernsehsendung Oha Suta am 9. April 2018 erstmalig in einem Trailer zum 21. Pokémon-Kinofilm zu sehen, bevor es in einem YouTube-Trailer des offiziellen Pokémon-Channels sowie in einem Steckbrief auf der offiziellen Homepage näher vorgestellt wurde. Zeraora spielt neben Lugia eine Hauptrolle im 21. Pokémon-Kinofilm.",
+    "typ": ["Blitz"]
+  },
+  {
+    "id": "725",
+    "name": "Flamiau",
+    "entwicklungslever": 17,
+    "weiterentwicklung": "726",
+    "endform": "727",
+    "img": "flammiau.gif",
+    "icon": "flamiau-icon.js",
+    "beschreibung": "Flamiau ist ein Pokémon mit dem Typ Feuer und existiert seit der siebten Spielgeneration. Es ist die Vorstufe von Miezunder, welches sich wiederum zu Fuegro entwickeln kann. Flamiau wurde am 10. Mai 2016 in einem Video enthüllt und auf der offiziellen Pokémon-Webseite weitergehend vorgestellt. Neben Bauz und Robball ist Flamiau eines der Starter-Pokémon aus Alola und ist in Pokémon Sonne, Mond, Ultrasonne und Ultramond als Starter-Pokémon erhältlich. Im Anime nimmt es als Ashs Flamiau eine wichtigere Rolle ein, welches sich später zu Miezunder und dann zu Fuegro entwickelt. Ein weitere wichtigere Rolle besitzt es als Sonnes Flamiau namens Kies im \"Pocket Monsters SPECIAL\"-Manga, das sich ebenfalls zu Miezunder entwickelt.",
+    "typ": ["Feuer"]
+  },
+  {
+    "id": "791",
+    "name": "Solgarleo",
+    "img": "solgarleo.png",
+    "icon": "solgarleo-icon.js",
+    "beschreibung": "Solgaleo ist ein Legendäres Pokémon mit den Typen Psycho und Stahl und existiert seit der siebten Spielgeneration. Es bildet neben Lunala eine mögliche letzte Entwicklungsstufe von Cosmog und Cosmovum. Solgaleo ziert das Cover von Pokémon Sonne und ist das Gegenstück zu Lunala, welches das Cover von Pokémon Mond ziert. Ein Solgaleo mit dem Spitznamen Wölkchen nimmt im Anime eine zentrale Rolle ein.",
+    "typ": ["Psycho", "Stahl"]
+  },
+  {
+    "id": "643",
+    "name": "Reshiram",
+    "img": "Reshiram.webp",
+    "icon": "reshiram-icon.js",
+    "beschreibung": "",
+    "typ": ["Feuer", "Drache"]
+  },
+  {
+    "id": "25",
+    "name": "Pikachu",
+    "entwicklungsitem": ["Donnerstein", "Donnerstein in Alola"],
+    "weiterentwicklung": "26",
+    "endform": "815",
+    "img": "Pikachu.png",
+    "icon": "pikachu-icon.js",
+    "beschreibung": "",
+    "typ": ["Blitz"]
+  }
 ]

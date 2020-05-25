@@ -17,7 +17,7 @@
   "icon": "img/Pikachu-96.png",
   "version":"0.01",
   "description": "",
-  "tags": "",
+  "tags": "game",
   "type":"app",
   "storage": [
     {"name":"pokedex.app.js","url":"pokedex-app.js"},
