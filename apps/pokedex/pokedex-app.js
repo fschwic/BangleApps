@@ -63,10 +63,14 @@ function drawPokemonScreen() {
     scale: 1
   });
 
-  writeText(pokemon.name, 2, IMAGE_SIZE, SCREEN_SIZE - IMAGE_SIZE - 5, IMAGE_SIZE + 10);
-  g.drawString(pokemon.name, 240 -96 -5, 130);
-  writeText(pokemon.beschreibung, 1, 130, 5, 10);
+  writeText(pokemon.name, 2, IMAGE_SIZE, SCREEN_SIZE - IMAGE_SIZE - 5, IMAGE_SIZE + 15);
+  writeText(pokemon.beschreibung, 1, 130, 5, 30);
 }
+
+
+/*************************\
+ * Text output functions *
+\*************************/
 
 function writeText(text, size, width, offset_x, offset_y) {
   var linenumber = 0;
@@ -76,7 +80,7 @@ function writeText(text, size, width, offset_x, offset_y) {
   var line = "";
   var words = text.split(' ');
   words.forEach(function(word, i) {
-    line += word;
+    line += " " + word;
     if (i > 0 && g.stringWidth(line) > width) {
       writeOut(lines, linenumber, size, offset_x, offset_y);
       line = word;
@@ -92,9 +96,11 @@ function writeOut(written, line_index, size, offset_x, offset_y) {
   g.setFont("6x8", size).drawString(written[line_index], offset_x, offset_y + ((8+1)*size) * line_index);
 }
 
+
 /******************************\
  * Knöpfe                     *
 \******************************/
+
 setWatch(function() {
   selected--;
   if (selected < 0) selected = dex.length - 1;
