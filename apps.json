@@ -12,6 +12,21 @@
     ],
     "sortorder" : -10
   },
+  { "id": "pokedex",
+  "name": "Pokedex",
+  "icon": "img/Pikachu-96.png",
+  "version":"0.01",
+  "description": "",
+  "tags": "",
+  "type":"app",
+  "storage": [
+    {"name":"pokedex.app.js","url":"pokedex-app.js"},
+    {"name":"pokedex.json","url":"pokedex.json"},
+    {"name":"hopplo-icon.js","url":"icons/hopplo-icon.js","evaluate":true},
+    {"name":"pokedex.img","url":"pokedex-icon.js","evaluate":true}
+  ]
+},
+
   { "id": "moonphase",
     "name": "Moonphase",
     "icon": "app.png",
