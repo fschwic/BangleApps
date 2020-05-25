@@ -64,6 +64,7 @@ function drawPokemonScreen() {
   });
 
   writeText(pokemon.name, 2, IMAGE_SIZE, SCREEN_SIZE - IMAGE_SIZE - 5, IMAGE_SIZE + 10);
+  g.drawString(pokemon.name, 240 -96 -5, 130);
   writeText(pokemon.beschreibung, 1, 130, 5, 10);
 }
 
@@ -84,11 +85,11 @@ function writeText(text, size, width, offset_x, offset_y) {
     lines[linenumber] = line;
   });
   // write last unfilled line
-  writeOut(lines, linenumber, offset_x, offset_y);
+  writeOut(lines, linenumber, size, offset_x, offset_y);
 }
 
 function writeOut(written, line_index, size, offset_x, offset_y) {
-  g.setFont("6x8", size).drawString(written[line_index], offset_x, offset_y + ((size +1)*size) * line_index);
+  g.setFont("6x8", size).drawString(written[line_index], offset_x, offset_y + ((8+1)*size) * line_index);
 }
 
 /******************************\
