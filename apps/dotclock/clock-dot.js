@@ -10,11 +10,12 @@ let currentDate = new Date();
 let hourRadius = 60;
 let minRadius = 80;
 const centerPx = g.getWidth() / 2;
+const HEIGHT_OFFSET = 14;
 
 const seconds = (angle) => {
   const a = angle * pRad;
   const x = centerPx + Math.sin(a) * faceWidth;
-  const y = centerPx - Math.cos(a) * faceWidth;
+  const y = centerPx - Math.cos(a) * faceWidth + HEIGHT_OFFSET;
 
   // if 15 degrees, make hour marker larger
   const radius = (angle % 15) ? 2 : 4;
@@ -24,14 +25,14 @@ const seconds = (angle) => {
 const hourDot = (angle,radius) => {
   const a = angle * pRad;
   const x = centerPx + Math.sin(a) * hourRadius;
-  const y = centerPx - Math.cos(a) * hourRadius;
+  const y = centerPx - Math.cos(a) * hourRadius + HEIGHT_OFFSET;
   g.fillCircle(x, y, radius);
 };
 
 const minDot = (angle,radius) => {
   const a = angle * pRad;
   const x = centerPx + Math.sin(a) * minRadius;
-  const y = centerPx - Math.cos(a) * minRadius;
+  const y = centerPx - Math.cos(a) * minRadius + HEIGHT_OFFSET;
   g.fillCircle(x, y, radius);
 };
 
@@ -101,7 +102,7 @@ const drawDate = () => {
   // console.log(`${dayString}|${dateString}`);
   // center date
   const l = (g.getWidth() - g.stringWidth(dateDisplay)) / 2;
-  const t = centerPx - 6 ;
+  const t = centerPx - 6 + HEIGHT_OFFSET;
   g.drawString(dateDisplay, l, t);
   // console.log(l, t);
 };
