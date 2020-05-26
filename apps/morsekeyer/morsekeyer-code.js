@@ -143,9 +143,9 @@ function nextChar(c) {
     written[linenumber] = "";
   }
   written[linenumber] += c;
-  writeOut(written, linenumber);
+  writeOut(written, linenumber, 10, 26);
 }
 
-function writeOut(written, line_index, offset_x = 10, offset_y = 26) {
+function writeOut(written, line_index, offset_x, offset_y) {
   g.setFont("6x8", 3).drawString(written[line_index], offset_x, offset_y + 26 * line_index);
 }
