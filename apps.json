@@ -730,6 +730,18 @@
       {"name":"morse.img","url":"morse-code-icon.js","evaluate":true}
     ]
   },
+  { "id": "morsebuzzer",
+    "name": "Morse Buzzer Test",
+    "icon": "morsebuzzer-code.png",
+    "version":"0.01",
+    "description": "Tap left for dit, tap right for dah.",
+    "tags": "morse,sound,visual,input",
+    "type":"app",
+    "storage": [
+      {"name":"morsebuzzer.app.js","url":"morsebuzzer-code.js"},
+      {"name":"morsebuzzer.img","url":"morsebuzzer-code-icon.js","evaluate":true}
+    ]
+  },
   { "id": "morsekeyer",
     "name": "Morse Keyer",
     "icon": "morsekeyer-code.png",
