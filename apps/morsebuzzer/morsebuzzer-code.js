@@ -49,7 +49,7 @@ var keyer = Bangle.buzz; // keyer might be Bangle.buzz or Bangle.beep
 var gatt;
 NRF.requestDevice({
   filters: [{
-    namePrefix: 'Bangle'
+    namePrefix: 'Bangle.js'
   }]
 }).then(
   console.log("found");
