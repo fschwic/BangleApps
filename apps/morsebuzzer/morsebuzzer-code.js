@@ -52,19 +52,14 @@ NRF.requestDevice({
     namePrefix: 'Bangle.js'
   }]
 }).then(
-  console.log("found");
   device => device.gatt.connect()
 ).then(
-  console.log("connected");
   g => (gatt = g).getPrimaryService("6e400001-b5a3-f393-e0a9-e50e24dcca9e")
 ).then(
-  console.log("got service");
   service => service.getCharacteristic("6e400002-b5a3-f393-e0a9-e50e24dcca9e")
 ).then(
-  console.log("got cahracteristic");
   characteristic => characteristic.writeValue("Bangle.buzz(180)\n")
 ).then(
-  console.log("send and disconnecting");
   () => {
     gatt.disconnect();
     console.log("Done!");
