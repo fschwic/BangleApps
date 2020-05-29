@@ -44,8 +44,6 @@ const MORSE_MAP = {
 // QRS: Send more slowly.
 // QRT: Stop sending.
 
-var keyer = Bangle.buzz; // keyer might be Bangle.buzz or Bangle.beep
-
 var gatt;
 NRF.requestDevice({
   filters: [{
@@ -58,10 +56,15 @@ NRF.requestDevice({
 ).then(
   service => service.getCharacteristic("6e400002-b5a3-f393-e0a9-e50e24dcca9e")
 ).then(
-  characteristic => characteristic.writeValue("Bangle.buzz(180)\n")
+  characteristic => characteristic.writeValue("function sendOut(sign){var signal_array = sign.split(\"\");function it(signals) {console.log(signals[0]);Bangle.buzz(Number(signals[0]) * UNIT).then(function() {setTimeout(() => {}, UNIT);}).then(function() {signals.shift();if (signals.length > 0) {it(signals);}});}; sendOut(\"1333\")\n")
 ).then(
   () => {
     gatt.disconnect();
     console.log("Done!");
+  }
+).catch(
+  () => {
+    gatt.disconnect();
+    console.log("catched and disconnected");
   }
 );

@@ -733,8 +733,8 @@
   { "id": "morsebuzzer",
     "name": "Morse Buzzer Test",
     "icon": "morsebuzzer-code.png",
-    "version":"0.01",
-    "description": "Tap left for dit, tap right for dah.",
+    "version":"0.02",
+    "description": "Trying to buzz another Bangle.js",
     "tags": "morse,sound,visual,input",
     "type":"app",
     "storage": [
