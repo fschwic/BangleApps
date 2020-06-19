@@ -74,6 +74,7 @@ const dah = () => {
 const newChar = () => {
   var c = MORSE_MAP[sign];
   if (c) {
+    //sendOut(sign);
     nextChar(c);
   } else {
     console.log("Unknown sign: " + sign);
@@ -144,6 +145,23 @@ function nextChar(c) {
   }
   written[linenumber] += c;
   writeOut(written, linenumber, 10, 26);
+}
+
+function sendOut(sign) {
+  var signal_array = sign.split("");
+
+  function it(signals) {
+    console.log(signals[0]);
+    Bangle.buzz(Number(signals[0]) * UNIT).then(function() {
+      setTimeout(() => {}, UNIT);
+    }).then(function() {
+      signals.shift();
+      if (signals.length > 0) {
+        it(signals);
+      }
+    });
+  }
+  it(signal_array);
 }
 
 function writeOut(written, line_index, offset_x, offset_y) {
