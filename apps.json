@@ -256,7 +256,7 @@
     "allow_emulator":true,
     "storage": [
       {"name":"impwclockde.app.js","url":"clock-impwordde.js"},
-      {"name":"impwclockde.img","url":"clock-impword-iconde.js","evaluate":true}
+      {"name":"impwclockde.img","url":"clock-impwordde-icon.js","evaluate":true}
     ]
   },
   { "id": "aclock",
