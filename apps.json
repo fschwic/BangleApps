@@ -246,6 +246,19 @@
       {"name":"impwclock.img","url":"clock-impword-icon.js","evaluate":true}
     ]
   },
+  { "id": "impwclockde",
+    "name": "Unpräzise Wort Uhr",
+    "icon": "clock-impwordde.png",
+    "version":"0.01",
+    "description": "German version of Imprecise word clock for vacations, weekends, and those who never need accurate time.",
+    "tags": "clock",
+    "type":"clock",
+    "allow_emulator":true,
+    "storage": [
+      {"name":"impwclockde.app.js","url":"clock-impwordde.js"},
+      {"name":"impwclockde.img","url":"clock-impword-iconde.js","evaluate":true}
+    ]
+  },
   { "id": "aclock",
     "name": "Analog Clock",
     "icon": "clock-analog.png",
