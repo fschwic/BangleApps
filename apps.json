@@ -259,6 +259,19 @@
       {"name":"impwclockde.img","url":"clock-impwordde-icon.js","evaluate":true}
     ]
   },
+  { "id": "ttclock",
+    "name": "Timetable Clock",
+    "icon": "clock-impwordde.png",
+    "version":"0.01",
+    "description": "Shows current and upcoming events from a preloaded timetable.",
+    "tags": "clock",
+    "type":"clock",
+    "allow_emulator":true,
+    "storage": [
+      {"name":"ttclock.app.js","url":"ttclock.app.js"},
+      {"name":"ttclock.img","url":"ttclock-icon.js","evaluate":true}
+    ]
+  },
   { "id": "aclock",
     "name": "Analog Clock",
     "icon": "clock-analog.png",
