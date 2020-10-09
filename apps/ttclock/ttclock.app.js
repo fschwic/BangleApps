@@ -159,12 +159,20 @@ const tick = function(drawAll) {
   //now.setMinutes(27);
   //now.setSeconds(59);
   var dayChanged = false;
+
+  var goneClass;
+  var curClass;
+  var nextClass;
+
   if (!dayPlan || currentWeekDay !== now.getDay()) {
     // load day plan when day has changed
     console.log("loading day plan");
     currentWeekDay = now.getDay();
     dayChanged = true;
     dayPlan = getDayPlan(now);
+  }
+
+  if (dayPlan) {
     dayPlan.events.sort(function(a, b) {
       var aDate = makeDate(now, a.start);
       var bDate = makeDate(now, b.start);
@@ -175,43 +183,39 @@ const tick = function(drawAll) {
       }
       return 0;
     });
-  }
 
-  var goneClass;
-  var curClass;
-  var nextClass;
+    for (var i = 0; i < dayPlan.events.length; i++) {
+      var e = dayPlan.events[i];
+      var eStartDate = makeDate(now, e.start);
+      var eEndDate = makeDate(now, e.end);
+      if (eEndDate < now) {
+        // gone, keep latest
+        goneClass = e;
+      }
+      if (eStartDate < now && eEndDate > now) {
+        curClass = e;
+      }
+      if (eStartDate > now) {
+        // upcoming, keep first
+        nextClass = e;
+        break;
+      }
+    }
 
-  for (var i = 0; i < dayPlan.events.length; i++) {
-    var e = dayPlan.events[i];
-    var eStartDate = makeDate(now, e.start);
-    var eEndDate = makeDate(now, e.end);
-    if (eEndDate < now) {
-      // gone, keep latest
-      goneClass = e;
+    if (goneClass) {
+      goneClass.gone = Math.floor((makeDate(now, goneClass.end) - makeDate(now, goneClass.start)) / 1000 / 60);
+      goneClass.last = 0;
     }
-    if (eStartDate < now && eEndDate > now) {
-      curClass = e;
+    if (curClass) {
+      curClass.gone = Math.floor((now - makeDate(now, curClass.start)) / 1000 / 60);
+      curClass.last = Math.ceil((makeDate(now, curClass.end) - now) / 1000 / 60);
     }
-    if (eStartDate > now) {
-      // upcoming, keep first
-      nextClass = e;
-      break;
+    if (nextClass) {
+      nextClass.gone = Math.floor((now - makeDate(now, nextClass.start)) / 1000 / 60);
+      nextClass.until = -1 * nextClass.gone;
+      nextClass.last = "";
     }
-  }
-
-  if (goneClass) {
-    goneClass.gone = Math.floor((makeDate(now, goneClass.end) - makeDate(now, goneClass.start)) / 1000 / 60);
-    goneClass.last = 0;
-  }
-  if (curClass) {
-    curClass.gone = Math.floor((now - makeDate(now, curClass.start)) / 1000 / 60);
-    curClass.last = Math.ceil((makeDate(now, curClass.end) - now) / 1000 / 60);
-  }
-  if (nextClass) {
-    nextClass.gone = Math.floor((now - makeDate(now, nextClass.start)) / 1000 / 60);
-    nextClass.until = -1 * nextClass.gone;
-    nextClass.last = "";
-  }
+  } // END if(dayPlan)
 
   //console.log(goneClass);
   //console.log(curClass);
