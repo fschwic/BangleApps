@@ -14,11 +14,11 @@ function makeDate(date, timestring) {
 const getDayPlan = function(date) {
   const weekDayNum = date.getDay();
   var result;
-    SP.forEach(function(e) {
-      if (e.day === weekDayNum) {
-        result = e;
-      }
-    });
+  SP.forEach(function(e) {
+    if (e.day === weekDayNum) {
+      result = e;
+    }
+  });
   return result;
 };
 
@@ -48,59 +48,53 @@ const screen = {
 var settings = {};
 settings.gap = 10;
 settings.day = {
-    color: -1,
-    font: 'Vector',
-    size: 20,
-    middle: 24 + 20/2 + 2,
-    center: screen.center,
-    margin: 2
-  };
+  color: -1,
+  font: 'Vector',
+  size: 20,
+  middle: 24 + 20 / 2 + 2,
+  center: screen.center,
+  margin: 2
+};
 settings.time = {
-    color: -1,
-    font: '7x11Numeric7Seg',
-    size: 7,
-    middle: 24 + settings.day.size + 2*settings.day.margin + 77/2 + 4,//screen.middle - 20,
-    center: screen.center,
-    margin: 4
-  };
+  color: -1,
+  font: '7x11Numeric7Seg',
+  size: 7,
+  middle: 24 + settings.day.size + 2 * settings.day.margin + 77 / 2 + 4, //screen.middle - 20,
+  center: screen.center,
+  margin: 4
+};
 settings.weekday = {
-    color: -1,
-    font: 'Vector',
-    size: 18,
-    middle: 24 + settings.day.size + 2*settings.day.margin + settings.time.size*11 + 2*settings.time.margin + settings.gap + 18/2 + 2,//screen.height - 80,
-    center: screen.center,
-    margin: 2
-  };
+  color: -1,
+  font: 'Vector',
+  size: 18,
+  middle: 24 + settings.day.size + 2 * settings.day.margin + settings.time.size * 11 + 2 * settings.time.margin + settings.gap + 18 / 2 + 2, //screen.height - 80,
+  center: screen.center,
+  margin: 2
+};
 settings.curClass = {
-    color: -1,
-    font: 'Vector',
-    size: 24,
-    middle: 24 + settings.day.size + 2*settings.day.margin + settings.time.size*11 + 2*settings.time.margin + settings.gap + settings.weekday.size + 2*settings.weekday.margin + 24/2 + 2,//screen.height - 50,
-    center: screen.center,
-    margin: 2
-  };
+  color: -1,
+  font: 'Vector',
+  size: 24,
+  middle: 24 + settings.day.size + 2 * settings.day.margin + settings.time.size * 11 + 2 * settings.time.margin + settings.gap + settings.weekday.size + 2 * settings.weekday.margin + 24 / 2 + 2, //screen.height - 50,
+  center: screen.center,
+  margin: 2
+};
 settings.nextClass = {
-    color: -1,
-    font: 'Vector',
-    size: 20,
-    middle: 24 + settings.day.size + 2*settings.day.margin + settings.time.size*11 + 2*settings.time.margin + settings.gap + settings.weekday.size + 2*settings.weekday.margin + settings.curClass.size + 2*settings.curClass.margin + 20/2 + 2,//screen.height - 20,
-    center: screen.center,
-    margin: 2
-  };
+  color: -1,
+  font: 'Vector',
+  size: 20,
+  middle: 24 + settings.day.size + 2 * settings.day.margin + settings.time.size * 11 + 2 * settings.time.margin + settings.gap + settings.weekday.size + 2 * settings.weekday.margin + settings.curClass.size + 2 * settings.curClass.margin + 20 / 2 + 2, //screen.height - 20,
+  center: screen.center,
+  margin: 2
+};
 settings.dayPlan = {
-    color: -1,
-    font: 'Vector',
-    size: 14,
-    middle: 24 + settings.day.size + 2*settings.day.margin + settings.time.size*11 + 2*settings.time.margin + settings.gap + settings.weekday.size + 2*settings.weekday.margin + settings.curClass.size + 2*settings.curClass.margin + 14/2 + 2,//screen.height - 20,
-    center: screen.center,
-    margin: 2
-  };
-settings.bar = {
-    color: -1,
-    top: 155, // just below time
-    thickness: 6, // matches 24h time "pixel" size
-  };
-
+  color: -1,
+  font: 'Vector',
+  size: 14,
+  middle: 24 + settings.day.size + 2 * settings.day.margin + settings.time.size * 11 + 2 * settings.time.margin + settings.gap + settings.weekday.size + 2 * settings.weekday.margin + settings.curClass.size + 2 * settings.curClass.margin + 14 / 2 + 2, //screen.height - 20,
+  center: screen.center,
+  margin: 2
+};
 
 const drawTime = function(date) {
   const t = settings.time;
@@ -159,15 +153,17 @@ const draw = function(config, string) {
 var currentWeekDay;
 var dayPlan;
 var currentMinute;
-const tick = function() {
+const tick = function(drawAll) {
   var now = new Date();
   //now.setHours(12);
   //now.setMinutes(27);
   //now.setSeconds(59);
-  if(!dayPlan || currentWeekDay !== now.getDay()){
+  var dayChanged = false;
+  if (!dayPlan || currentWeekDay !== now.getDay()) {
     // load day plan when day has changed
     console.log("loading day plan");
     currentWeekDay = now.getDay();
+    dayChanged = true;
     dayPlan = getDayPlan(now);
     dayPlan.events.sort(function(a, b) {
       var aDate = makeDate(now, a.start);
@@ -179,8 +175,6 @@ const tick = function() {
       }
       return 0;
     });
-    // only called when day has changed
-    drawDay(now);
   }
 
   var goneClass;
@@ -224,17 +218,21 @@ const tick = function() {
   //console.log(nextClass);
 
   const drawFace = function() {
-    // for performance reasons drawDay is called above when loading day plan
-    if(!currentMinute || currentMinute !== now.getMinutes()){
+    if (drawAll || !currentMinute || currentMinute !== now.getMinutes()) {
       currentMinute = now.getMinutes();
       drawTime(now);
+    }
+
+    if (drawAll || dayChanged) {
+      // only called when day has changed
+      drawDay(now);
     }
 
     if (!nextClass) {
       // in last class or after school
       var nextDay = new Date(now.getTime() + (24 * 60 * 60 * 1000));
       var tomorrowsPlan = getDayPlan(nextDay);
-      while(!tomorrowsPlan){
+      while (!tomorrowsPlan) {
         nextDay = new Date(nextDay.getTime() + (24 * 60 * 60 * 1000));
         tomorrowsPlan = getDayPlan(nextDay);
       }
@@ -242,7 +240,7 @@ const tick = function() {
       if (!curClass) {
         // after school
         var tomorrowsFirstClass = tomorrowsPlan.events[0];
-        if(tomorrowsFirstClass){
+        if (tomorrowsFirstClass) {
           tomorrowsFirstClass.until = Math.ceil((now - makeDate(nextDay, tomorrowsFirstClass.start)) / 1000 / 60);
           tomorrowsFirstClass.gone = Math.ceil((now - makeDate(nextDay, tomorrowsFirstClass.start)) / 1000 / 60);
           tomorrowsFirstClass.last = "";
@@ -270,7 +268,7 @@ const tick = function() {
   drawFace();
 };
 
-const setButtons = function(){
+const setButtons = function() {
   // Show launcher when middle button pressed
   setWatch(Bangle.showLauncher, BTN2, {
     repeat: false,
@@ -279,10 +277,10 @@ const setButtons = function(){
 };
 
 var clock;
-const start = function() {
+const start = function(forceDrawAll) {
   g.reset();
   Bangle.drawWidgets();
-  tick();
+  tick(forceDrawAll);
   clock = setInterval(tick, 1000 * 10);
 };
 
@@ -295,17 +293,17 @@ const stop = function() {
 };
 
 var SCREENACCESS = {
-      withApp:true,
-      request:function(){
-        this.withApp=false;
-        stop(); //clears redraw timers etc
-        clearWatch(); //clears button handlers
-      },
-      release:function(){
-        this.withApp=true;
-        start(); //redraw app screen, restart timers etc
-        setButtons(); //install button event handlers
-      }
+  withApp: true,
+  request: function() {
+    this.withApp = false;
+    stop(); //clears redraw timers etc
+    clearWatch(); //clears button handlers
+  },
+  release: function() {
+    this.withApp = true;
+    start(true); //redraw app screen, restart timers etc
+    setButtons(); //install button event handlers
+  }
 };
 
 Bangle.on('lcdPower', function(on) {
