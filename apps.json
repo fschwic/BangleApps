@@ -262,7 +262,7 @@
   { "id": "ttclock",
     "name": "Timetable Clock",
     "icon": "ttclock.png",
-    "version":"0.02",
+    "version":"0.01",
     "description": "Shows current and upcoming events from a preloaded timetable.",
     "tags": "clock",
     "type":"clock",

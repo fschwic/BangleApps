@@ -280,7 +280,6 @@ const setButtons = function(){
 
 var clock;
 const start = function() {
-  g.clear();
   g.reset();
   Bangle.drawWidgets();
   tick();
@@ -294,12 +293,6 @@ const stop = function() {
     clock = undefined;
   }
 };
-
-// do it
-g.clear();
-Bangle.loadWidgets();
-Bangle.drawWidgets();
-setButtons();
 
 var SCREENACCESS = {
       withApp:true,
@@ -323,4 +316,9 @@ Bangle.on('lcdPower', function(on) {
     stop();
   }
 });
+
+// do it
+g.clear();
+Bangle.loadWidgets();
 start();
+setButtons();
