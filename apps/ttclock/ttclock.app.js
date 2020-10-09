@@ -264,8 +264,19 @@ const tick = function() {
   drawFace();
 };
 
+const setButtons = function(){
+  // Show launcher when middle button pressed
+  setWatch(Bangle.showLauncher, BTN2, {
+    repeat: false,
+    edge: 'falling'
+  });
+}
+
 var clock;
 const start = function() {
+  g.clear();
+  Bangle.drawWidgets();
+  setButtons();
   tick();
   clock = setInterval(tick, 1000 * 10);
 };
@@ -282,13 +293,24 @@ const stop = function() {
 g.clear();
 Bangle.loadWidgets();
 Bangle.drawWidgets();
-// Show launcher when middle button pressed
-setWatch(Bangle.showLauncher, BTN2, {
-  repeat: false,
-  edge: 'falling'
-});
+setButtons();
+
+var SCREENACCESS = {
+      withApp:true,
+      request:function(){
+        this.withApp=false;
+        stop(); //clears redraw timers etc
+        clearWatch(); //clears button handlers
+      },
+      release:function(){
+        this.withApp=true;
+        startdraw(); //redraw app screen, restart timers etc
+        setButtons(); //install button event handlers
+      }
+}
 
 Bangle.on('lcdPower', function(on) {
+  if (!SCREENACCESS.withApp) return;
   if (on) {
     start();
   } else {
