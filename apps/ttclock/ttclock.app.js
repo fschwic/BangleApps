@@ -310,7 +310,7 @@ var SCREENACCESS = {
       },
       release:function(){
         this.withApp=true;
-        startdraw(); //redraw app screen, restart timers etc
+        start(); //redraw app screen, restart timers etc
         setButtons(); //install button event handlers
       }
 };
