@@ -281,8 +281,8 @@ const setButtons = function(){
 var clock;
 const start = function() {
   g.clear();
+  g.reset();
   Bangle.drawWidgets();
-  setButtons();
   tick();
   clock = setInterval(tick, 1000 * 10);
 };

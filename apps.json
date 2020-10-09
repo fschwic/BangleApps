@@ -262,7 +262,7 @@
   { "id": "ttclock",
     "name": "Timetable Clock",
     "icon": "ttclock.png",
-    "version":"0.01",
+    "version":"0.02",
     "description": "Shows current and upcoming events from a preloaded timetable.",
     "tags": "clock",
     "type":"clock",
@@ -2323,5 +2323,5 @@
     {"name":"digiclock.app.js","url":"digiclock.js"},
     {"name":"digiclock.img","url":"digiclock-icon.js","evaluate":true}
  ]
-} 
+}
 ]
