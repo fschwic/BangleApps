@@ -1,4 +1,4 @@
-var SP = JSON.parse('[{"day":0,"title":"Sonntag","events":[{}]},{"day":1,"title":"Montag","events":[{"start":"7:45","end":"9:15","name":"Deutsch"},{"start":"9:35","end":"11:05","name":"BK"},{"start":"11:25","end":"12:55","name":"Englisch"}]},{"day":2,"title":"Dienstag","events":[{"start":"7:45","end":"8:30","name":"Englisch"},{"start":"8:30","end":"9:15","name":"Deutsch"},{"start":"9:35","end":"11:05","name":"Mathe"},{"start":"11:25","end":"12:55","name":"Musik"}]},{"day":3,"title":"Mittwoch","events":[{"start":"7:45","end":"9:15","name":"Geo"},{"start":"9:35","end":"11:05","name":"Sport"},{"start":"11:25","end":"12:55","name":"Bio"},{"start":"13:10","end":"13:55","name":"LL"}]},{"day":4,"title":"Donnerstag","events":[{"start":"7:45","end":"9:15","name":"MB"},{"start":"9:35","end":"11:05","name":"Sport"},{"start":"11:25","end":"12:55","name":"Ethik"}]},{"day":5,"title":"Freitag","events":[{"start":"7:45","end":"9:15","name":"Mathe"},{"start":"9:35","end":"11:05","name":"Deutsch"},{"start":"11:25","end":"12:55","name":"Englisch"},{"start":"13:10","end":"13:55","name":"KL"}]}]');
+var SP = JSON.parse('[{"day":0,"title":"Sonntag","events":[{}]},{"day":1,"title":"Montag","events":[{"start":"7:45","end":"9:15","name":"Deutsch"},{"start":"9:35","end":"11:05","name":"BK"},{"start":"11:25","end":"12:55","name":"Englisch"}]},{"day":2,"title":"Dienstag","events":[{"start":"7:45","end":"8:30","name":"Englisch"},{"start":"8:30","end":"9:15","name":"Deutsch"},{"start":"9:35","end":"11:05","name":"Mathe"},{"start":"11:25","end":"12:55","name":"Musik"}]},{"day":3,"title":"Mittwoch","events":[{"start":"7:45","end":"9:15","name":"Geo"},{"start":"9:35","end":"11:05","name":"Sport"},{"start":"11:25","end":"12:55","name":"Bio"},{"start":"13:10","end":"13:55","name":"LL"}]},{"day":4,"title":"Donnerstag","events":[{"start":"7:45","end":"9:15","name":"MB"},{"start":"9:35","end":"11:05","name":"Sport"},{"start":"11:25","end":"12:55","name":"Ethik"}]},{"day":5,"title":"Freitag","events":[{"start":"7:45","end":"9:15","name":"Mathe"},{"start":"9:35","end":"11:05","name":"Deutsch"},{"start":"11:25","end":"12:55","name":"Englisch"},{"start":"13:10","end":"13:55","name":"KL"},{"start":"14:00","end":"15:45","name":"Robotic AG"}]}]');
 
 function makeDate(date, timestring) {
   var collonPosition = timestring.indexOf(":");
@@ -232,8 +232,12 @@ const tick = function() {
 
     if (!nextClass) {
       // in last class or after school
-      const tomorrow = new Date(now.getTime() + (24 * 60 * 60 * 1000));
-      const tomorrowsPlan = getDayPlan(tomorrow);
+      var nextDay = new Date(now.getTime() + (24 * 60 * 60 * 1000));
+      var tomorrowsPlan = getDayPlan(nextDay);
+      while(!tomorrowsPlan){
+        nextDay = new Date(nextDay.getTime() + (24 * 60 * 60 * 1000));
+        tomorrowsPlan = getDayPlan(nextDay);
+      }
       drawDayPlan(tomorrowsPlan);
       if (!curClass) {
         // after school
@@ -270,7 +274,7 @@ const setButtons = function(){
     repeat: false,
     edge: 'falling'
   });
-}
+};
 
 var clock;
 const start = function() {
@@ -307,7 +311,7 @@ var SCREENACCESS = {
         startdraw(); //redraw app screen, restart timers etc
         setButtons(); //install button event handlers
       }
-}
+};
 
 Bangle.on('lcdPower', function(on) {
   if (!SCREENACCESS.withApp) return;
