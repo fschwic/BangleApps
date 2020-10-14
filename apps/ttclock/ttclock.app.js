@@ -1,9 +1,9 @@
 var SP = JSON.parse('[{"day":1,"title":"Montag","events":[{"start":"7:45","end":"9:15","name":"Deutsch"},{"start":"9:35","end":"11:05","name":"BK"},{"start":"11:25","end":"12:55","name":"Englisch"}]},{"day":2,"title":"Dienstag","events":[{"start":"7:45","end":"8:30","name":"Englisch"},{"start":"8:30","end":"9:15","name":"Deutsch"},{"start":"9:35","end":"11:05","name":"Mathe"},{"start":"11:25","end":"12:55","name":"Musik"}]},{"day":3,"title":"Mittwoch","events":[{"start":"7:45","end":"9:15","name":"Geo"},{"start":"9:35","end":"11:05","name":"Sport"},{"start":"11:25","end":"12:55","name":"Bio"},{"start":"13:10","end":"13:55","name":"LL"}]},{"day":4,"title":"Donnerstag","events":[{"start":"7:45","end":"9:15","name":"MB"},{"start":"9:35","end":"11:05","name":"Sport"},{"start":"11:25","end":"12:55","name":"Ethik"}]},{"day":5,"title":"Freitag","events":[{"start":"7:45","end":"9:15","name":"Mathe"},{"start":"9:35","end":"11:05","name":"Deutsch"},{"start":"11:25","end":"12:55","name":"Englisch"},{"start":"13:10","end":"13:55","name":"KL"},{"start":"14:00","end":"15:45","name":"Robotic AG"}]}]');
 
 function makeDate(date, timestring) {
-  var collonPosition = timestring.indexOf(":");
-  var hours = timestring.substring(0, collonPosition);
-  var minutes = timestring.substring(collonPosition + 1);
+  const collonPosition = timestring.indexOf(":");
+  const hours = timestring.substring(0, collonPosition);
+  const minutes = timestring.substring(collonPosition + 1);
   var result = new Date(date.getTime());
   result.setHours(hours);
   result.setMinutes(minutes);
@@ -99,8 +99,8 @@ settings.dayPlan = {
 const drawTime = function(date) {
   const t = settings.time;
 
-  var hours = (" " + date.getHours()).substr(-2);
-  var minutes = ("0" + date.getMinutes()).substr(-2);
+  const hours = (" " + date.getHours()).substr(-2);
+  const minutes = ("0" + date.getMinutes()).substr(-2);
 
   draw(t, hours + ":" + minutes);
 };
@@ -135,7 +135,7 @@ const drawDayPlan = function(dayPlan) {
   dayPlan.events.forEach(function(e) {
     classes += " " + e.name;
   });
-  var ds = dayPlan.title + ":" + classes;
+  const ds = dayPlan.title + ":" + classes;
 
   draw(dp, ds.substr(0, 30));
 };
@@ -166,13 +166,9 @@ const tick = function(drawAll) {
 
   if (!dayPlan || currentWeekDay !== now.getDay()) {
     // load day plan when day has changed
-    console.log("loading day plan");
     currentWeekDay = now.getDay();
     dayChanged = true;
     dayPlan = getDayPlan(now);
-  }
-
-  if (dayPlan) {
     dayPlan.events.sort(function(a, b) {
       var aDate = makeDate(now, a.start);
       var bDate = makeDate(now, b.start);
@@ -183,11 +179,14 @@ const tick = function(drawAll) {
       }
       return 0;
     });
+  }
+
+  if (dayPlan) {
 
     for (var i = 0; i < dayPlan.events.length; i++) {
-      var e = dayPlan.events[i];
-      var eStartDate = makeDate(now, e.start);
-      var eEndDate = makeDate(now, e.end);
+      const e = dayPlan.events[i];
+      const eStartDate = makeDate(now, e.start);
+      const eEndDate = makeDate(now, e.end);
       if (eEndDate < now) {
         // gone, keep latest
         goneClass = e;
