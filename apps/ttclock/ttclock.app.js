@@ -139,7 +139,7 @@ const drawDayPlan = function(dayPlan) {
   const ds = dayPlan.title + ":" + classes;
 
   draw(dp, ds.substr(0, 30));
-  if(ds.length > 30
+  if(ds.length > 30){
     const tmp = dp.middle;
     dp.middle = dp.middle + dp.size + dp.margin;
     draw(dp, ds.substr(30));
