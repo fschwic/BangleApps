@@ -121,12 +121,12 @@ const drawDay = function(date) {
 
 const drawCurClass = function(curClass) {
   const cc = settings.curClass;
-  draw(cc, curClass.gone + " " + curClass.name + " " + curClass.last);
+  draw(cc, curClass.gone + " " + curClass.name.substr(0,10) + " " + curClass.last);
 };
 
 const drawNextClass = function(nextClass) {
   const nc = settings.nextClass;
-  draw(nc, nextClass.name + " in " + nextClass.until + "min");
+  draw(nc, nextClass.name.substr(0,10) + " in " + nextClass.until + "min");
 };
 
 const drawDayPlan = function(dayPlan) {
@@ -139,6 +139,12 @@ const drawDayPlan = function(dayPlan) {
   const ds = dayPlan.title + ":" + classes;
 
   draw(dp, ds.substr(0, 30));
+  if(ds.length > 30
+    const tmp = dp.middle;
+    dp.middle = dp.middle + dp.size + dp.margin;
+    draw(dp, ds.substr(30));
+    dp.middle = tmp;
+  }
 };
 
 const draw = function(config, string) {
