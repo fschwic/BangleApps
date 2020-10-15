@@ -1,4 +1,5 @@
-var SP = JSON.parse('[{"day":1,"title":"Montag","events":[{"start":"7:45","end":"9:15","name":"Deutsch"},{"start":"9:35","end":"11:05","name":"BK"},{"start":"11:25","end":"12:55","name":"Englisch"}]},{"day":2,"title":"Dienstag","events":[{"start":"7:45","end":"8:30","name":"Englisch"},{"start":"8:30","end":"9:15","name":"Deutsch"},{"start":"9:35","end":"11:05","name":"Mathe"},{"start":"11:25","end":"12:55","name":"Musik"}]},{"day":3,"title":"Mittwoch","events":[{"start":"7:45","end":"9:15","name":"Geo"},{"start":"9:35","end":"11:05","name":"Sport"},{"start":"11:25","end":"12:55","name":"Bio"},{"start":"13:10","end":"13:55","name":"LL"}]},{"day":4,"title":"Donnerstag","events":[{"start":"7:45","end":"9:15","name":"MB"},{"start":"9:35","end":"11:05","name":"Sport"},{"start":"11:25","end":"12:55","name":"Ethik"}]},{"day":5,"title":"Freitag","events":[{"start":"7:45","end":"9:15","name":"Mathe"},{"start":"9:35","end":"11:05","name":"Deutsch"},{"start":"11:25","end":"12:55","name":"Englisch"},{"start":"13:10","end":"13:55","name":"KL"},{"start":"14:00","end":"15:45","name":"Robotic AG"}]}]');
+var s = require("Storage");
+var SP = s.readJSON("ttclock-timetable.json");
 
 function makeDate(date, timestring) {
   const collonPosition = timestring.indexOf(":");
