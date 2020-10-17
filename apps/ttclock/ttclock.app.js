@@ -121,12 +121,12 @@ const drawDay = function(date) {
 
 const drawCurClass = function(curClass) {
   const cc = settings.curClass;
-  draw(cc, curClass.gone + " " + curClass.name.substr(0,10) + " " + curClass.last);
+  draw(cc, curClass.gone + " " + curClass.name.substr(0, 10) + " " + curClass.last);
 };
 
 const drawNextClass = function(nextClass) {
   const nc = settings.nextClass;
-  draw(nc, nextClass.name.substr(0,10) + " in " + nextClass.until + "min");
+  draw(nc, nextClass.name.substr(0, 10) + " in " + nextClass.until + "min");
 };
 
 const drawDayPlan = function(dayPlan) {
@@ -139,7 +139,7 @@ const drawDayPlan = function(dayPlan) {
   const ds = dayPlan.title + ":" + classes;
 
   draw(dp, ds.substr(0, 30));
-  if(ds.length > 30){
+  if (ds.length > 30) {
     const tmp = dp.middle;
     dp.middle = dp.middle + dp.size + dp.margin;
     draw(dp, ds.substr(30));
@@ -176,16 +176,18 @@ const tick = function(drawAll) {
     currentWeekDay = now.getDay();
     dayChanged = true;
     dayPlan = getDayPlan(now);
-    dayPlan.events.sort(function(a, b) {
-      var aDate = makeDate(now, a.start);
-      var bDate = makeDate(now, b.start);
-      if (aDate < bDate) {
-        return -1;
-      } else if (aDate > bDate) {
-        return 1;
-      }
-      return 0;
-    });
+    if (dayPlan) {
+      dayPlan.events.sort(function(a, b) {
+        var aDate = makeDate(now, a.start);
+        var bDate = makeDate(now, b.start);
+        if (aDate < bDate) {
+          return -1;
+        } else if (aDate > bDate) {
+          return 1;
+        }
+        return 0;
+      });
+    }
   }
 
   if (dayPlan) {
