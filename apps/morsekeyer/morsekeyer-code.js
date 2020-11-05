@@ -69,6 +69,7 @@ var dahWatcher;
 
 var linenumber; // current number of lines of written text
 var written; // what was written so far, an array of lines
+var qcode; // keep track of Q-Codes
 
 const dit = () => {
   unlisten();
@@ -154,6 +155,42 @@ setWatch(() => keyer = Bangle.beep, BTN3, {
 
 function nextChar(c) {
   g.setFont("6x8", 3);
+
+  if (c === 'Q') {
+    qcode = [c];
+    console.log(qcode);
+  } else if (c !== ' ' && qcode && qcode.length) {
+    // length is 1 or 2
+    qcode[qcode.length] = c;
+    if (qcode.length >= 3) {
+      console.log(qcode.toString());
+      if (qcode[1] === 'R') {
+        // TODO code duplication
+        if (qcode[2] === 'T') {
+          const m = "Stop sending";
+          console.log(m);
+          c = m;
+          linenumber++;
+          written[linenumber] = "";
+        } else if (qcode[2] === 'A') {
+          const m = "My name is";
+          console.log(m);
+          c = m;
+          linenumber++;
+          written[linenumber] = "";
+        } else if (qcode[2] === 'T') {
+          const m = "Send more slowly";
+          console.log(m);
+          c = m;
+          linenumber++;
+          written[linenumber] = "";
+        }
+      }
+      qcode = [];
+    }
+    console.log(qcode);
+  }
+
   if (g.stringWidth(written[linenumber]) > 220) {
     linenumber++;
     written[linenumber] = "";
